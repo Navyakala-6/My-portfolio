@@ -147,8 +147,9 @@ body.light-mode {
   border-radius: 8px;
 }
 .site-nav a:hover, .site-nav a.active {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  background: rgba(124,92,255,0.18);
+  /* More visible hover for dark mode */
 }
 
 /* Hero */
