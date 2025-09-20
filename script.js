@@ -1,3 +1,41 @@
+// Dark/Light mode toggle
+const modeToggle = document.getElementById('mode-toggle');
+const modeIcon = document.getElementById('mode-icon');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const getSavedMode = () => localStorage.getItem('color-mode');
+const setSavedMode = (mode) => localStorage.setItem('color-mode', mode);
+
+function applyMode(mode) {
+  if (mode === 'light') {
+    document.body.classList.add('light-mode');
+    if (modeIcon) modeIcon.textContent = '☀️';
+  } else {
+    document.body.classList.remove('light-mode');
+    if (modeIcon) modeIcon.textContent = '🌙';
+  }
+}
+
+function toggleMode() {
+  const isLight = document.body.classList.toggle('light-mode');
+  if (isLight) {
+    if (modeIcon) modeIcon.textContent = '☀️';
+    setSavedMode('light');
+  } else {
+    if (modeIcon) modeIcon.textContent = '🌙';
+    setSavedMode('dark');
+  }
+}
+
+if (modeToggle) {
+  modeToggle.addEventListener('click', toggleMode);
+  // On load, set mode from saved or system preference
+  const saved = getSavedMode();
+  if (saved) {
+    applyMode(saved);
+  } else {
+    applyMode(prefersDark ? 'dark' : 'light');
+  }
+}
 // Mobile nav toggle
 const navToggleButton = document.querySelector('.nav-toggle');
 const navElement = document.querySelector('.site-nav');

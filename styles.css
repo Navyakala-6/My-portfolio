@@ -13,6 +13,20 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
+body.light-mode {
+  --bg: #f7f8fa;
+  --panel: #fff;
+  --text: #181c25;
+  --muted: #5a6270;
+  --primary: #7c5cff;
+  --primary-600: #6547ff;
+  --accent: #00b4d8;
+  --border: #e3e7ef;
+  --success: #1dd1a1;
+  --danger: #ff6b6b;
+  --shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -23,6 +37,32 @@ body {
               radial-gradient(1000px 600px at 90% 10%, rgba(0,212,255,0.12), transparent),
               var(--bg);
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background: radial-gradient(1000px 600px at 10% -10%, rgba(124,92,255,0.07), transparent),
+              radial-gradient(1000px 600px at 90% 10%, rgba(0,212,255,0.07), transparent),
+              var(--bg);
+}
+/* Mode toggle button */
+.mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  margin-left: 18px;
+  cursor: pointer;
+  color: var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.mode-toggle:hover {
+  background: rgba(124,92,255,0.10);
 }
 
 .container {
