@@ -1,3 +1,22 @@
+/* Light mode nav adjustments */
+body.light-mode .site-header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+body.light-mode .site-nav a {
+  color: var(--muted);
+}
+body.light-mode .site-nav a:hover,
+body.light-mode .site-nav a.active {
+  color: var(--primary-600);
+  background: rgba(124,92,255,0.08);
+}
+@media (max-width: 640px) {
+  body.light-mode .site-nav ul {
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+}
 /* Design tokens */
 :root {
   --bg: #0b0f17;
